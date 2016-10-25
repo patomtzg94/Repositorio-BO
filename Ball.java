@@ -71,21 +71,25 @@ public class Ball extends Actor
      */
     public void act() 
     {
+      Paddle p = new Paddle();
       World w = getWorld();
-        if(isAtEdge())
+        if(getX() <= 10 || getX() >= 395)
         {
-            if(getY()==0)
-            {
-                velY=velY*(-1);
-            }else{
                velX=velX*(-1);
-            }
         }
         if(getY() >= ((BreakoutWorld)w).HEIGHT )
         {
             ((BreakoutWorld)w).bolaperdida(getX(),getY());
         }else{
            setLocation(getX()+velX,getY()+velY);
+        }
+        if(isTouching(Paddle.class))
+        {
+           velY = velY *(-1);   
+        }
+        if(isTouching(Brick.class))
+        {
+           velY = velY *(-1);
         }
     }
     
