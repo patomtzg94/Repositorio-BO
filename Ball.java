@@ -95,17 +95,15 @@ public class Ball extends Actor
         }
         if(isTouching(Paddle.class))
         {
-           velY = velY *(-1);   
+           velY = velY *(-1);
         }
         if(isTouching(Brick.class))
         {
            velY = velY *(-1);
            removeTouching(Brick.class);
-        }
+           ((BreakoutWorld)w).checkIfWon();
+        }    
     }
-    
-   
-    
     
     /**
      * Method to set the ball color
@@ -114,6 +112,11 @@ public class Ball extends Actor
     {
         this.color = theColor;
         updateImage();
+    }
+    
+    public void setColor()
+    {
+       //Vambiar el color depende el ladrillo que toco
     }
     
     /**

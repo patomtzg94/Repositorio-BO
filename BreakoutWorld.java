@@ -44,6 +44,7 @@ public class BreakoutWorld extends World
 
     /**Vida*/
     private int vida=3;
+   
     ////////////////// instance fields ///////////////////////////////
 
     /** the number of balls created in the game so far */
@@ -51,6 +52,8 @@ public class BreakoutWorld extends World
 
     /** a message displayed for the user */
     private Message message = null;
+    
+   
 
     //////////// constructors /////////////
 
@@ -83,7 +86,7 @@ public class BreakoutWorld extends World
         /* check if used 3 or more */
         if (numBalls > 3)
         {
-            message.setText("Game over and you lost.");
+            gameOver();
             Greenfoot.stop();
         }
         /* create new ball and tell the user the number of balls created */
@@ -173,7 +176,7 @@ public class BreakoutWorld extends World
 
     public void gameOver()
     {
-        //Fin del jueg
+        message.setText("Game over and you lost.");
     }
 
     /**
@@ -182,6 +185,11 @@ public class BreakoutWorld extends World
      */
     private void prepare()
     {
+    }
+    
+    public void brickMenos()
+    {
+        
     }
     
     public void bolaperdida(int x, int y)
