@@ -22,7 +22,7 @@ public class Ball extends Actor
     private int width = radius * 2;
     
     /** the color of the ball */
-    private Color color = Color.BLACK;
+    private Color color = Color.BLUE;
     
     /** the amount of change in x during each act */
     private int velX;
