@@ -32,6 +32,8 @@ public class Ball extends Actor
     
     /**Direccion de la bola*/
     private int x=1, y=1;
+    
+    
     ////////////////// constructors /////////////////////
     
     /**
@@ -45,6 +47,14 @@ public class Ball extends Actor
            velX = -1 * velX;
         updateImage();
     }
+    
+    public void eliminaLadrillo()
+    { if(isTouching(Brick.class))
+      {
+        removeTouching(Brick.class);
+      }
+    }    
+    
     
     /**
      * Constructor that takes initial values for all fields
@@ -90,6 +100,7 @@ public class Ball extends Actor
         if(isTouching(Brick.class))
         {
            velY = velY *(-1);
+           removeTouching(Brick.class);
         }
     }
     
