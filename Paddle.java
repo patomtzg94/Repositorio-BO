@@ -63,14 +63,16 @@ public class Paddle extends Actor
     }
     
     public void desplaza(){
-       
-       if( Greenfoot.isKeyDown("left")){
-        move(-3);
-       } 
-       
-       if( Greenfoot.isKeyDown("right")){
-        move(3);
-       }
+      World mundo=getWorld();
+        if(Greenfoot.isKeyDown("right")){
+            if(getX() < ((BreakoutWorld)mundo).WIDTH-(width/2)){
+                move(moveAmount);
+            }            
+        }else if(Greenfoot.isKeyDown("left")){
+            if(getX() > width/2){
+                move(-moveAmount);
+            }
+        }
     }
     
     /**

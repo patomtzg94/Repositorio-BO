@@ -71,18 +71,26 @@ public class Ball extends Actor
      */
     public void act() 
     {
-        setDirection();
-        setLocation(getX () + x*velX,  getY () + y*velY);
-        if(getY() >475){
-         ((BreakoutWorld)getWorld()).vidaMenos();
-        setDirection();
-        setLocation(202,222);
+      World w = getWorld();
+        if(isAtEdge())
+        {
+            if(getY()==0)
+            {
+                velY=velY*(-1);
+            }else{
+               velX=velX*(-1);
+            }
         }
-        
-        if(getX() < 5 || getX() >394)
-            x= x*-1;
-       
+        if(getY() >= ((BreakoutWorld)w).HEIGHT )
+        {
+            ((BreakoutWorld)w).bolaperdida(getX(),getY());
+        }else{
+           setLocation(getX()+velX,getY()+velY);
+        }
     }
+    
+   
+    
     
     /**
      * Method to set the ball color

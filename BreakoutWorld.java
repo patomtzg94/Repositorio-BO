@@ -183,4 +183,11 @@ public class BreakoutWorld extends World
     private void prepare()
     {
     }
+    
+    public void bolaperdida(int x, int y)
+    {
+        List l = getObjects(Ball.class);
+        removeObjects(l);
+        newBall();
+    }
 }
